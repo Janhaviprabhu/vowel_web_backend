@@ -2,17 +2,14 @@ const express=require("express")
 const cors=require("cors")
 const {AdminRouter}=require("./routes/admin")
 const { Connection } = require("./config/db")
+const { CartRouter } = require("./routes/cart")
 const PORT=process.env.PORT || 8000
 
 const app=express()
 app.use(cors())
 app.use(express.json())
 app.use('/admin', AdminRouter);
-
-// app.get("/",(req,res)=>{
-//     res.send("welcome to cart backend")
-// })
-
+app.use('/cart',CartRouter);
 
 
 app.listen(PORT, async () => {
