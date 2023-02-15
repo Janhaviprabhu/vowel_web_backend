@@ -3,14 +3,14 @@ const { ProductModel } = require('../models/ProductModel');
 const AdminRouter = Router()
 
 
-AdminRouter.get('/products', async (req, res) => {
-    try {
-        const products = await ProductModel.find();
-        res.send(products);
-    } catch (error) {
-        res.status(400).send({ "mesage": "Something Went Wrong" })
-    }
-})
+// AdminRouter.get('/products', async (req, res) => {
+//     try {
+//         const products = await ProductModel.find();
+//         res.send(products);
+//     } catch (error) {
+//         res.status(400).send({ "mesage": "Something Went Wrong" })
+//     }
+// })
 
 AdminRouter.post('/create', async (req, res) => {
     const { title ,price,image } = req.body;
