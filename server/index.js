@@ -1,18 +1,19 @@
-const express=require("express")
-const cors=require("cors")
-const {AdminRouter}=require("./routes/admin")
+const express = require("express")
+const cors = require("cors")
+const { AdminRouter } = require("./routes/admin")
 const { Connection } = require("./config/db")
 const { CartRouter } = require("./routes/cart")
 const ProductRouter = require("./routes/products")
-const PORT=process.env.PORT || 8000
+const { UserRouter } = require("./routes/auth")
+const PORT = process.env.PORT || 8000
 
-const app=express()
+const app = express()
 app.use(cors())
 app.use(express.json())
-app.use('/products',ProductRouter)
+app.use('/products', ProductRouter)
 app.use('/admin', AdminRouter);
-app.use('/cart',CartRouter);
-
+app.use('/cart', CartRouter);
+app.use('/user', UserRouter)
 
 app.listen(PORT, async () => {
     try {
